@@ -1,0 +1,25 @@
+div.container
+	background: rgba(0, 0, 0, 0.2)
+	padding: 16px
+	display: flex
+ul.list
+	list-style: none
+	padding: 0
+ol.list
+	list-style: none
+	padding: 0
+div.navigation
+	display: flex
+	background: #000
+	& a
+		color: #fff
+	& ul.list
+		margin: 12px 8px
+		& li.list-item
+			float: left
+			& a.list-link
+				display: block
+				padding: 4px 8px
+				&:hover
+					& span.list-span
+						border-bottom: 1px solid
