@@ -38,7 +38,6 @@ export default (env) => {
 									//'script:src',
 								],
 								//interpolate: true,
-								minimize: true,
 								removeComments: true,
 							},
 						},
@@ -48,7 +47,7 @@ export default (env) => {
 						{
 							loader: 'pug-loader',
 							options: {
-								// deprecated ?
+								// deprecated
 								pretty: env.develop ? '\t' : false,
 							},
 						},

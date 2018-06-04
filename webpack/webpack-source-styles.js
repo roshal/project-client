@@ -1,7 +1,8 @@
-import p__mini_css_extract_plugin from 'mini-css-extract-plugin'
-import p__postcss_cssnext from 'postcss-cssnext'
-import p__postcss_easy_import from 'postcss-easy-import'
 import p__cssnano from 'cssnano'
+import p__mini_css_extract_plugin from 'mini-css-extract-plugin'
+import p__postcss_easy_import from 'postcss-easy-import'
+import p__precss from 'precss'
+import p__stylelint from 'stylelint'
 import {
 	join as p__path__join,
 } from 'path'
@@ -30,6 +31,9 @@ export default (env) => {
 						},
 						{
 							loader: 'extract-loader',
+							options: {
+								sourceMap: env.develop,
+							},
 						},
 						{
 							loader: 'css-loader',
@@ -54,8 +58,17 @@ export default (env) => {
 											'.sass',
 										],
 									}),
-									p__postcss_cssnext(),
-									//p__cssnano(),
+									p__precss(),
+									p__cssnano({
+										preset: [
+											'default', {
+												discardComments: {
+													removeAll: true,
+												},
+											},
+										],
+									}),
+									//p__stylelint(),
 								],
 								sourceMap: env.develop,
 							},
@@ -64,11 +77,11 @@ export default (env) => {
 				},
 			],
 		},
-		plugins: [
-			new p__mini_css_extract_plugin({
-				filename: '[name].css',
-				chunkFilename: '[id].css',
-			}),
-		],
+		//plugins: [
+		//	new p__mini_css_extract_plugin({
+		//		filename: '[name].css',
+		//		chunkFilename: '[id].css',
+		//	}),
+		//],
 	}
 }

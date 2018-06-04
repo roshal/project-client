@@ -14,13 +14,19 @@ export default () => {
 		output: {
 			path: p__path__join(__dirname, '..', 'public'),
 		},
-		plugins: [
-			new p__uglifyjs_webpack_plugin({
-				parallel: true,
-				uglifyOptions: {
-					toplevel: true,
-				},
-			}),
-		],
+		optimization: {
+			minimizer: [
+				new p__uglifyjs_webpack_plugin({
+					parallel: true,
+					uglifyOptions: {
+						toplevel: true,
+						output: {
+							comments: false,
+						},
+					},
+					//extractComments: true,
+				}),
+			],
+		},
 	}
 }

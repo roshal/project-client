@@ -1,5 +1,5 @@
 import p__webpack_bundle_analyzer from 'webpack-bundle-analyzer'
-// 
+//
 export default () => {
 	return {
 		plugins: [
