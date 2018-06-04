@@ -9,7 +9,7 @@
 		],
 		"headers": [
 			{
-				"source": "/@(fonts|images)/**",
+				"source": "/@(favicon.png|@(fonts|images)/**)",
 				"headers": [
 					{
 						"key": "Cache-Control",

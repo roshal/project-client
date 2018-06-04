@@ -19,9 +19,8 @@ export default (env) => {
 						{
 							loader: 'file-loader',
 							options: {
-								name: (file, a, b) => {
-									console.log(file, a, b)
-									return '[name].html'
+								name: (file) => {
+									return 'source.html'
 								},
 							},
 						},
