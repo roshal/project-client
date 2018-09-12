@@ -26,9 +26,9 @@ export default (env) => {
 						},
 						{
 							loader: 'extract-loader',
-							options: {
-								publicPath: '/',
-							},
+							// options: {
+							// 	publicPath: '/',
+							// },
 						},
 						{
 							loader: 'html-loader',

@@ -17,18 +17,18 @@ export default class component_clock extends p__react__pure_component {
 			})
 		},
 	}
-  componentDidMount = () => {
-    this.interval = setInterval(
-      this.methods.tick,
-      1000,
-    )
-  }
-  componentWillUnmount = () => {
+	componentDidMount = () => {
+		this.interval = setInterval(
+			this.methods.tick,
+			1000,
+		)
+	}
+	componentWillUnmount = () => {
 		clearInterval(this.interval)
-  }
+	}
 	render = () => {
 		return [
-			$('div', [
+			$('div.paragraph', [
 				this.state.time.format('HH:mm:ss'),
 			]),
 		][0]

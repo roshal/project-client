@@ -8,7 +8,7 @@ const $ = p__react_hyperscript
 export default class page_authorization extends p__react__pure_component {
 	render = () => {
 		return [
-			$('div', [
+			$('div.paragraph', [
 				$('div', [
 					$('div', [
 						'username',

@@ -26,7 +26,7 @@ export default p__react_redux__connect(
 			),
 		}
 	},
-)(class component_items extends p__react__pure_component {
+)(class component_redux_items extends p__react__pure_component {
 	state = {
 		'value': '',
 	}
@@ -65,15 +65,15 @@ export default p__react_redux__connect(
 						return [
 							$('li.list__item', [
 								$('div.list__key', [
-									item.key,
+									item.get('key'),
 								]),
 								$('div.list__value', [
-									item.value,
+									item.get('value'),
 								]),
 								$('button.list__remove-btn.btn', {
 									onClick: () => {
 										return this.methods.remove({
-											key: item.key,
+											key: item.get('key'),
 										})
 									},
 								}, [
@@ -89,13 +89,13 @@ export default p__react_redux__connect(
 							]),
 						][0]
 					},
-				)),
+				).toJS()),
 			][0]
 		}
 	}
 	render = () => {
 		return [
-			$('div', [
+			$('div.paragraph', [
 				$('div', [
 					$('div', [
 						$('div', [
@@ -114,7 +114,7 @@ export default p__react_redux__connect(
 						]),
 					]),
 				]),
-				this.renders.items(this.props.state['items']),
+				this.renders.items(this.props.state.get('items')),
 			]),
 		][0]
 	}

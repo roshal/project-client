@@ -1,6 +1,6 @@
 import {
 	List as p__immutable__list,
-	Record as p__immutable__record,
+	Map as p__immutable__map,
 } from 'immutable'
 //
 const actions = {
@@ -35,17 +35,17 @@ const actions = {
 }
 //
 export default (
-	state = p__immutable__record({
+	state = p__immutable__map({
 		'items': p__immutable__list([
-			p__immutable__record({
+			p__immutable__map({
 				key: Math.random(),
 				value: 'a',
 			}),
-			p__immutable__record({
+			p__immutable__map({
 				key: Math.random(),
 				value: 'b',
 			}),
-			p__immutable__record({
+			p__immutable__map({
 				key: Math.random(),
 				value: 'c',
 			}),

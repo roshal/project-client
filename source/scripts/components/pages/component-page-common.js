@@ -14,7 +14,7 @@ export default class page_component extends p__react__pure_component {
 	}
 	render = () => {
 		return [
-			$('div', [
+			$('div.paragraph', [
 				$('div', [
 					$('button', {
 						onClick: this.method,

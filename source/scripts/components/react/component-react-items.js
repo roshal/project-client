@@ -5,7 +5,7 @@ import {
 //
 const $ = p__react_hyperscript
 //
-export default class component_list extends p__react__pure_component {
+export default class component_react_items extends p__react__pure_component {
 	state = {
 		'value': '',
 		'items': [],
@@ -89,7 +89,7 @@ export default class component_list extends p__react__pure_component {
 	}
 	render = () => {
 		return [
-			$('div', [
+			$('div.paragraph', [
 				$('div', [
 					$('div', [
 						$('div', [

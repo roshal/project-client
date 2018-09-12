@@ -13,7 +13,7 @@ import m__action_table from '../../actions/action-table'
 //
 const $ = p__react_hyperscript
 //
-const source = class component_list extends p__react__pure_component {
+const source = class component_redux_table extends p__react__pure_component {
 	state = {
 		'value': '',
 	}
@@ -98,7 +98,7 @@ const source = class component_list extends p__react__pure_component {
 	}
 	render = () => {
 		return [
-			$('div', [
+			$('div.paragraph', [
 				$('div', [
 					$('div', [
 						$('label.app__value-label', [

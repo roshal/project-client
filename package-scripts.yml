@@ -17,8 +17,8 @@ scripts:
     produce: nps clean.public webpack.watch.produce
   server:
     default: concurrent "nps server.develop" "nps server.produce"
-    develop: webpack-dev-server --hot --progress --env.develop
-    produce: webpack-dev-server --hot --progress --env.produce
+    develop: webpack-dev-server --hot --env.develop
+    produce: webpack-dev-server --hot --env.produce
   webpack:
     default: concurrent "nps webpack.develop" "nps webpack.produce"
     develop: webpack --env.develop

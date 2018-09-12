@@ -8,7 +8,14 @@ const $ = p__react_hyperscript
 export default class page extends p__react__pure_component {
 	render = () => {
 		return [
-			null,
+			$('div', [
+				$('p', [
+					'abc',
+				]),
+				$('p', [
+					'def',
+				]),
+			]),
 		][0]
 	}
 }

@@ -12,26 +12,20 @@ export default () => {
 		output: {
 			chunkFilename: 'scripts/[id].js',
 			filename: '[name].js',
-			//publicPath: '/',
+			publicPath: '/',
 		},
-		stats: {
-			assets: true,
-			colors: true,
-			version: false,
-			hash: false,
-			timings: false,
-			chunks: true,
-			chunkModules: true,
-		},
+		stats: false,
 		devServer: {
+			stats: 'none',
 			historyApiFallback: {
 				rewrites: [
 					{
-						to: '/source.html',
+						from: /\/$/,
+						to: '/',
 					},
 				],
 			},
-			index: 'source.html',
+			index: '/source.html',
 			proxy: {
 				'/api/': {
 					changeOrigin: true,

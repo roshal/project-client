@@ -1,3 +1,4 @@
+import '../../styles/sources/source.sass'
 import '../../templates/sources/source.pug'
 //
 import p__react_hyperscript from 'react-hyperscript'

@@ -26,7 +26,7 @@ export default p__react_redux__connect(
 			),
 		}
 	},
-)(class component_mongo extends p__react__pure_component {
+)(class component_redux_mongo extends p__react__pure_component {
 	state = {
 		'value': '',
 	}
@@ -95,7 +95,7 @@ export default p__react_redux__connect(
 	}
 	render = () => {
 		return [
-			$('div', [
+			$('div.paragraph', [
 				$('div', [
 					$('div', [
 						$('div', [

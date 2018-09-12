@@ -5,7 +5,7 @@ import {
 //
 const $ = p__react_hyperscript
 //
-export default class component_list extends p__react__pure_component {
+export default class component_react_table extends p__react__pure_component {
 	state = {
 		'rows': [
 			[
@@ -40,7 +40,7 @@ export default class component_list extends p__react__pure_component {
 	}
 	render = () => {
 		return [
-			$('div', [
+			$('div.paragraph', [
 				this.renders.items(this.state['rows']),
 			]),
 		][0]
