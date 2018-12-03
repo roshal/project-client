@@ -1,8 +1,9 @@
+//
 import p__cssnano from 'cssnano'
-//import p__mini_css_extract_plugin from 'mini-css-extract-plugin'
+//	import p__mini_css_extract_plugin from 'mini-css-extract-plugin'
 import p__postcss_easy_import from 'postcss-easy-import'
 import p__precss from 'precss'
-//import p__stylelint from 'stylelint'
+//	import p__stylelint from 'stylelint'
 import {
 	join as p__path__join,
 } from 'path'
@@ -21,7 +22,7 @@ export default (env) => {
 						],
 					},
 					use: [
-						//p__mini_css_extract_plugin.loader,
+						//	p__mini_css_extract_plugin.loader,
 						...env.develop ? [
 							{
 								loader: 'style-loader/url',
@@ -31,7 +32,7 @@ export default (env) => {
 							loader: 'file-loader',
 							options: {
 								name: '[name].css',
-								//useRelativePath: true,
+								//	useRelativePath: true,
 							},
 						},
 						{
@@ -43,12 +44,12 @@ export default (env) => {
 						{
 							loader: 'css-loader',
 							options: {
-								//modules: true,
-								//minimize: env.produce ? {
-								//	discardComments: {
-								//		removeAll: true,
-								//	},
-								//} : false,
+								//	modules: true,
+								//	minimize: env.produce ? {
+								//		discardComments: {
+								//			removeAll: true,
+								//		},
+								//	} : false,
 								sourceMap: env.develop,
 								importLoaders: 1,
 							},
@@ -71,7 +72,7 @@ export default (env) => {
 											},
 										}),
 									] : [],
-									//p__stylelint(),
+									//	p__stylelint(),
 								],
 								sourceMap: env.develop,
 							},
@@ -80,11 +81,11 @@ export default (env) => {
 				},
 			],
 		},
-		//plugins: [
-		//	new p__mini_css_extract_plugin({
-		//		filename: '[name].css',
-		//		chunkFilename: '[id].css',
-		//	}),
-		//],
+		//	plugins: [
+		//		new p__mini_css_extract_plugin({
+		//			filename: '[name].css',
+		//			chunkFilename: '[id].css',
+		//		}),
+		//	],
 	}
 }

@@ -1,3 +1,4 @@
+//
 import {
 	join as p__path__join,
 } from 'path'
@@ -26,18 +27,18 @@ export default (env) => {
 						},
 						{
 							loader: 'extract-loader',
-							// options: {
-							// 	publicPath: '/',
-							// },
+							//	options: {
+							//		publicPath: '/',
+							//	},
 						},
 						{
 							loader: 'html-loader',
 							options: {
 								attrs: [
 									'link:href',
-									//'script:src',
+									//	'script:src',
 								],
-								//interpolate: true,
+								//	interpolate: true,
 								removeComments: true,
 							},
 						},

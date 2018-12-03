@@ -1,4 +1,6 @@
+//
 import p__react_hyperscript from 'react-hyperscript'
+//
 import {
 	PureComponent as p__react__pure_component,
 } from 'react'
@@ -12,7 +14,6 @@ import {
 import m__action_table from '../../actions/action-table'
 //
 const $ = p__react_hyperscript
-//
 const source = class component_redux_table extends p__react__pure_component {
 	state = {
 		'value': '',

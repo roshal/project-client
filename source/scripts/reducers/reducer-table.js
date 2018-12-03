@@ -1,3 +1,4 @@
+//
 const actions = {
 	'table--create': (state, action) => {
 		return {

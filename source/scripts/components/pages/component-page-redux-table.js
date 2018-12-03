@@ -1,5 +1,7 @@
+//
 import p__lodash__fp__map from 'lodash/fp/map'
 import p__react_hyperscript from 'react-hyperscript'
+//
 import {
 	PureComponent as p__react__pure_component,
 } from 'react'

@@ -1,4 +1,6 @@
+//
 import p__react_hyperscript from 'react-hyperscript'
+//
 import {
 	Component as p__react__component,
 } from 'react'

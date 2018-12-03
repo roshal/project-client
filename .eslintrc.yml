@@ -14,12 +14,7 @@ rules:
   # stylistic issues
   comma-dangle:
     - error
-    -
-      arrays: always-multiline
-      exports: always-multiline
-      functions: always-multiline
-      imports: always-multiline
-      objects: always-multiline
+    - always-multiline
   indent:
     - error
     - tab

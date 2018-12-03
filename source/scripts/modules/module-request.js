@@ -1,3 +1,4 @@
+//
 export default async () => {
 	try {
 		const response = await fetch('//sregneva.now.sh/test_api/staff/', {
@@ -12,12 +13,12 @@ export default async () => {
 		}
 	}
 }
-//fetch('//sregneva.now.sh/test_api/staff/', {
-//	method: 'GET',
-//}).then((response) => {
-//	return response.json()
-//}).catch((error) => {
-//	console.error(error)
-//}).then((json) => {
-//	console.log(json)
-//})
+//	fetch('//sregneva.now.sh/test_api/staff/', {
+//		method: 'GET',
+//	}).then((response) => {
+//		return response.json()
+//	}).catch((error) => {
+//		console.error(error)
+//	}).then((json) => {
+//		console.log(json)
+//	})

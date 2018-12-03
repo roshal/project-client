@@ -1,3 +1,4 @@
+//
 export default (element) => {
 	return new Promise(
 		(resolve) => {

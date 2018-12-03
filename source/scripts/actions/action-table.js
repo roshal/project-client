@@ -1,3 +1,4 @@
+//
 export default {
 	'create': (item) => {
 		return {

@@ -1,11 +1,13 @@
+//
 import p__webpack_stylish from 'webpack-stylish'
+//
 import {
-	resolve as p__path__resolve,
+	join as p__path__join,
 } from 'path'
 //
 export default () => {
 	return {
-		context: p__path__resolve(__dirname, '..', 'source'),
+		context: p__path__join(__dirname, '..', 'source'),
 		entry: {
 			'source': './scripts/sources/source.js',
 		},
@@ -17,32 +19,32 @@ export default () => {
 		stats: false,
 		devServer: {
 			stats: 'none',
-			historyApiFallback: {
-				rewrites: [
-					{
-						from: /\/$/,
-						to: '/',
-					},
-				],
-			},
-			index: '/source.html',
-			proxy: {
-				'/api/': {
-					changeOrigin: true,
-					//pathRewrite: {
-					//	'^/api/': '/',
-					//},
-					//target: 'https://roshal-server.herokuapp.com/',
-					target: 'http://localhost:8080/api/',
-				},
-			},
+			//	historyApiFallback: {
+			//		rewrites: [
+			//			{
+			//				from: /\/$/,
+			//				to: '/',
+			//			},
+			//		],
+			//	},
+			//	index: '/source.html',
+			//	proxy: {
+			//		'/api/': {
+			//			changeOrigin: true,
+			//			pathRewrite: {
+			//				'^/api/': '/',
+			//			},
+			//			target: 'https://roshal-server.herokuapp.com/',
+			//			target: 'http://localhost:8080/api/',
+			//		},
+			//	},
 		},
 		resolve: {
 			extensions: [
 				'.js',
 			],
 			modules: [
-				p__path__resolve(__dirname, '..', 'node_modules'),
+				p__path__join(__dirname, '..', 'node_modules'),
 			],
 		},
 		plugins: [

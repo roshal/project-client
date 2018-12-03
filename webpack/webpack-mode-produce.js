@@ -1,4 +1,6 @@
+//
 import p__uglifyjs_webpack_plugin from 'uglifyjs-webpack-plugin'
+//
 import {
 	join as p__path__join,
 } from 'path'
@@ -24,7 +26,7 @@ export default () => {
 							comments: false,
 						},
 					},
-					//extractComments: true,
+					//	extractComments: true,
 				}),
 			],
 		},

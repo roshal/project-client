@@ -1,4 +1,6 @@
+//
 import p__react_hyperscript from 'react-hyperscript'
+//
 import {
 	PureComponent as p__react__pure_component,
 } from 'react'
@@ -37,20 +39,20 @@ export default class component_react_items extends p__react__pure_component {
 				],
 			})
 		},
-		//update: (item) => {
-		//	this.setState({
-		//		...this.state,
-		//		items: [
-		//			...this.state.items.filter((item) => {
-		//				return key !== item.key
-		//			}),
-		//			{
-		//				key: item.key,
-		//				value: item.value,
-		//			}
-		//		],
-		//	})
-		//},
+		//	update: (item) => {
+		//		this.setState({
+		//			...this.state,
+		//			items: [
+		//				...this.state.items.filter((item) => {
+		//					return key !== item.key
+		//				}),
+		//				{
+		//					key: item.key,
+		//					value: item.value,
+		//				}
+		//			],
+		//		})
+		//	},
 	}
 	renders = {
 		items: (items) => {
@@ -72,13 +74,13 @@ export default class component_react_items extends p__react__pure_component {
 									}, [
 										'remove',
 									]),
-									//$('button.list__update-btn.btn', {
-									//	onClick: () => {
-									//		return this.methods.update(item.key)
-									//	},
-									//}, [
-									//	'update',
-									//]),
+									//	$('button.list__update-btn.btn', {
+									//		onClick: () => {
+									//			return this.methods.update(item.key)
+									//		},
+									//	}, [
+									//		'update',
+									//	]),
 								]),
 							]),
 						][0]
