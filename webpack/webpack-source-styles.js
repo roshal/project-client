@@ -1,91 +1,91 @@
-//
-import p__cssnano from 'cssnano'
-//	import p__mini_css_extract_plugin from 'mini-css-extract-plugin'
-import p__postcss_easy_import from 'postcss-easy-import'
-import p__precss from 'precss'
-//	import p__stylelint from 'stylelint'
-import {
-	join as p__path__join,
-} from 'path'
-//
-export default (env) => {
+const $ = require('../node/packages')(
+	'mini-css-extract-plugin',
+	'path',
+	'postcss-easy-import',
+	'postcss-import',
+	'precss',
+	'webpack',
+)
+module.exports = (env = {}, argv) => {
 	return {
+		plugins: [
+			new $['webpack'].PrefetchPlugin('./styles/sources/source.sass'),
+			new $['mini-css-extract-plugin']({
+				filename: argv.develop ? '[name].css' : '[name].[hash].css'
+			}),
+		],
 		module: {
 			rules: [
 				{
 					resource: {
 						include: [
-							p__path__join(__dirname, '..', 'source', 'styles'),
+							$['path'].join(__dirname, '..', 'source', 'styles'),
 						],
 						test: [
 							/\.sass$/,
 						],
 					},
 					use: [
-						//	p__mini_css_extract_plugin.loader,
-						...env.develop ? [
+						...argv.develop ? [
 							{
 								loader: 'style-loader/url',
 							},
-						] : [],
+						] : [
+							//	{
+							//		loader: $['mini-css-extract-plugin'].loader,
+							//	},
+						],
 						{
 							loader: 'file-loader',
 							options: {
 								name: '[name].css',
-								//	useRelativePath: true,
 							},
 						},
 						{
 							loader: 'extract-loader',
 							options: {
-								sourceMap: env.develop,
+								sourceMap: argv.develop,
 							},
 						},
 						{
 							loader: 'css-loader',
 							options: {
-								//	modules: true,
-								//	minimize: env.produce ? {
-								//		discardComments: {
-								//			removeAll: true,
-								//		},
-								//	} : false,
-								sourceMap: env.develop,
+								sourceMap: argv.develop,
 								importLoaders: 1,
+								modules: true,
 							},
 						},
 						{
 							loader: 'postcss-loader',
 							options: {
+								exec: true,
+								//	parser: 'postcss-sass',
 								parser: 'sugarss',
 								plugins: [
-									p__postcss_easy_import({
+									$['postcss-easy-import']({
 										extensions: [
 											'.sass',
 										],
 									}),
-									p__precss(),
-									...env.produce ? [
-										p__cssnano({
-											discardComments: {
-												removeAll: true,
-											},
-										}),
-									] : [],
-									//	p__stylelint(),
+									//	$['postcss-import']({
+									//		root: $['path'].join(__dirname, '..', 'node_modules'),
+									//	}),
+									//	'precss': {},
+									//	'postcss-utilities': {},
+									//	...argv.produce ? {
+									//		'cssnano': {
+									//			discardComments: {
+									//				removeAll: true,
+									//			},
+									//		},
+									//	} : {},
 								],
-								sourceMap: env.develop,
+								sourceMap: argv.develop,
 							},
 						},
 					],
 				},
 			],
 		},
-		//	plugins: [
-		//		new p__mini_css_extract_plugin({
-		//			filename: '[name].css',
-		//			chunkFilename: '[id].css',
-		//		}),
-		//	],
 	}
 }

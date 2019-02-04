@@ -1,19 +1,17 @@
-//
-import {
-	join as p__path__join,
-} from 'path'
-//
-export default () => {
+const $ = require('../node/packages')(
+	'path',
+)
+module.exports = () => {
 	return {
 		module: {
 			rules: [
 				{
 					resource: {
 						exclude: [
-							p__path__join(__dirname, '..', 'node_modules'),
+							$['path'].join(__dirname, '..', 'node_modules'),
 						],
 						include: [
-							p__path__join(__dirname, '..', 'source', 'scripts'),
+							$['path'].join(__dirname, '..', 'source', 'scripts'),
 						],
 						test: [
 							/\.js$/,
@@ -27,10 +25,10 @@ export default () => {
 								plugins: [
 									'@babel/plugin-syntax-dynamic-import',
 									'@babel/plugin-transform-runtime',
+									'babel-plugin-lodash',
 								],
 								presets: [
 									'@babel/preset-env',
-									'@babel/preset-flow',
 								],
 							},
 						},

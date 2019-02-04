@@ -1,16 +1,18 @@
-//
-import {
-	join as p__path__join,
-} from 'path'
-//
-export default (env) => {
+const $ = require('../node/packages')(
+	'path',
+	'webpack',
+)
+module.exports = (env = {}, argv) => {
 	return {
+		plugins: [
+			new $['webpack'].PrefetchPlugin('./templates/sources/source.pug'),
+		],
 		module: {
 			rules: [
 				{
 					resource: {
 						include: [
-							p__path__join(__dirname, '..', 'source', 'templates'),
+							$['path'].join(__dirname, '..', 'source', 'templates'),
 						],
 						test: [
 							/\.pug$/,
@@ -20,9 +22,10 @@ export default (env) => {
 						{
 							loader: 'file-loader',
 							options: {
-								name: (file) => {
-									return 'source.html'
-								},
+								name: 'source.html',
+								//	name: (file) => {
+								//		return 'source.html'
+								//	},
 							},
 						},
 						{
@@ -49,7 +52,7 @@ export default (env) => {
 							loader: 'pug-loader',
 							options: {
 								// deprecated
-								pretty: env.develop ? '\t' : false,
+								pretty: argv.develop ? '\t' : false,
 							},
 						},
 					],

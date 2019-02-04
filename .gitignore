@@ -10,7 +10,7 @@
 !/.eslintrc.yml
 !/.firebaserc
 !/.gitignore
-!/.yarnrc
+
 !/commands.sh
 !/firebase.json
 !/package-scripts.yml

@@ -1,8 +1,8 @@
 {
   "license": "MIT",
   "engines": {
-    "node": "^10.1",
-    "yarn": "^1.10"
+    "node": "^11.1",
+    "yarn": "^1.11"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -13,7 +13,7 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-hyperscript": "^3.2.0",
-    "react-redux": "^5.1.1",
+    "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
     "react-router-redux": "^4.0.8",
     "redux": "^4.0.1"
@@ -26,20 +26,16 @@
     "@babel/preset-flow": "^7.0.0",
     "@babel/register": "^7.0.0",
     "apply-loader": "^2.0.0",
-    "babel-core": "^6.26.3",
+    "autoprefixer": "^9.4.7",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-lodash": "^3.3.4",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-flow": "^6.23.0",
-    "babel-preset-stage-2": "^6.24.1",
     "concurrent": "^0.3.2",
-    "css-loader": "^1.0.1",
+    "css-loader": "^2.1.0",
     "cssnano": "^4.1.7",
     "eslint": "^5.9.0",
     "eslint-loader": "^2.1.1",
-    "file-loader": "^2.0.0",
+    "file-loader": "^3.0.1",
     "firebase-tools": "^6.1.1",
     "html-loader": "^0.5.5",
     "lodash-webpack-plugin": "^0.11.5",
@@ -59,14 +55,17 @@
     "pug-extract-loader": "^1.0.8",
     "pug-html-loader": "^1.1.5",
     "pug-loader": "^2.4.0",
+    "pug-plain-loader": "^1.0.0",
     "pug-runtime": "^2.0.4",
-    "raw-loader": "^0.5.1",
+    "raw-loader": "^1.0.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
-    "stylelint": "^9.9.0",
+    "stylelint": "^9.10.1",
     "sugarss": "^2.0.0",
+    "terser": "~3.14.1",
+    "terser-webpack-plugin": "^1.2.1",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "val-loader": "^1.1.1",
     "webpack": "^4.26.1",
@@ -80,6 +79,6 @@
     "css-entry-webpack-plugin": "^1.0.0-beta.4",
     "extract-loader": "^3.1.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "mini-css-extract-plugin": "^0.4.5"
+    "mini-css-extract-plugin": "^0.5.0"
   }
 }

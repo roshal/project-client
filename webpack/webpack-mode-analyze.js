@@ -1,10 +1,10 @@
-//
-import p__webpack_bundle_analyzer from 'webpack-bundle-analyzer'
-//
-export default () => {
+const $ = require('../node/packages')(
+	'webpack-bundle-analyzer',
+)
+module.exports = () => {
 	return {
 		plugins: [
-			new p__webpack_bundle_analyzer.BundleAnalyzerPlugin({
+			new $['webpack-bundle-analyzer'].BundleAnalyzerPlugin({
 				//	openAnalyzer: false,
 			}),
 		],

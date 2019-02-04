@@ -1,22 +1,15 @@
-//
-import p__lodash_webpack_plugin from 'lodash-webpack-plugin'
-//
-import {
-	join as p__path__join,
-} from 'path'
-//
-export default () => {
+const $ = require('../node/packages')(
+	'path',
+)
+module.exports = () => {
 	return {
 		mode: 'development',
+		output: {
+			path: $['path'].join(__dirname, '..', 'output'),
+		},
 		devServer: {
 			port: 80,
 		},
 		devtool: 'source-map',
-		output: {
-			path: p__path__join(__dirname, '..', 'output'),
-		},
-		plugins: [
-			new p__lodash_webpack_plugin(),
-		],
 	}
 }

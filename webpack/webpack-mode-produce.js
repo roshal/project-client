@@ -1,34 +1,20 @@
-//
-import p__uglifyjs_webpack_plugin from 'uglifyjs-webpack-plugin'
-//
-import {
-	join as p__path__join,
-} from 'path'
-//
-export default () => {
+const $ = require('../node/packages')(
+	'lodash-webpack-plugin',
+	'path',
+)
+module.exports = () => {
 	return {
 		mode: 'production',
+		output: {
+			path: $['path'].join(__dirname, '..', 'public'),
+		},
 		devServer: {
 			compress: true,
 			https: true,
 			port: 443,
 		},
-		output: {
-			path: p__path__join(__dirname, '..', 'public'),
-		},
-		optimization: {
-			minimizer: [
-				new p__uglifyjs_webpack_plugin({
-					parallel: true,
-					uglifyOptions: {
-						toplevel: true,
-						output: {
-							comments: false,
-						},
-					},
-					//	extractComments: true,
-				}),
-			],
-		},
+		plugins: [
+			new $['lodash-webpack-plugin'](),
+		],
 	}
 }
