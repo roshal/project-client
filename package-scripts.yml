@@ -1,37 +1,28 @@
 scripts:
-  develop:
-    default: nps server.develop
-  produce:
-    default: nps server.produce
-  reduce:
-    default: nps build.produce firebase.deploy
-  lint:
-    default: eslint .
-  build:
-    default: concurrent "nps build.develop" "nps build.produce"
-    develop: nps clean.output webpack.develop
-    produce: nps clean.public webpack.produce
-  watch:
-    default: concurrent "nps watch.develop" "nps watch.produce"
-    develop: nps clean.output webpack.watch.develop
-    produce: nps clean.public webpack.watch.produce
-  server:
-    default: concurrent "nps server.develop" "nps server.produce"
-    develop: webpack-dev-server --hot --env.develop
-    produce: webpack-dev-server --hot --env.produce
-  webpack:
-    default: concurrent "nps webpack.develop" "nps webpack.produce"
-    develop: webpack --env.develop
-    produce: webpack --env.produce
-    watch:
-      default: concurrent "nps webpack.watch.develop" "nps webpack.watch.produce"
-      develop: webpack -w --env.develop
-      produce: webpack -w --env.produce
-  clean:
-    default: concurrent "nps clean.output" "nps clean.public"
-    output: rm -fr output/*
-    public: rm -fr public/*
+  develop: nps serve.develop
+  produce: nps serve.produce
+  release: nps clean.produce build.produce firebase.deploy
   firebase:
     default: nps firebase.deploy
     deploy: firebase deploy
     serve: firebase serve
+  clean:
+    develop: rm -fr output/*
+    produce: rm -fr public/*
+  build:
+    develop: webpack --develop
+    produce: webpack --produce
+  watch:
+    develop: webpack --develop --watch
+    produce: webpack --produce --watch
+  serve:
+    develop: webpack-dev-server --develop --hot
+    produce: webpack-dev-server --produce --hot
+  test:
+    default: jest
+    coverage:
+      default: jest --coverage
+      changed: jest --coverage --onlyChanged
+  lint:
+    default: eslint --cache source
+    fix: eslint --fix source

@@ -1,13 +1,12 @@
 //
+
+import p__react from 'react'
 import p__react_hyperscript from 'react-hyperscript'
-//
-import {
-	PureComponent as p__react__pure_component,
-} from 'react'
-//
+
 const $ = p__react_hyperscript
-//
-export default class component_react_items extends p__react__pure_component {
+
+export default class extends p__react.PureComponent {
+	static displayName = 'component-react-items'
 	state = {
 		'value': '',
 		'items': [],
@@ -40,6 +39,7 @@ export default class component_react_items extends p__react__pure_component {
 			})
 		},
 		//	update: (item) => {
+		//		const key = item.key
 		//		this.setState({
 		//			...this.state,
 		//			items: [
@@ -47,7 +47,7 @@ export default class component_react_items extends p__react__pure_component {
 		//					return key !== item.key
 		//				}),
 		//				{
-		//					key: item.key,
+		//					key,
 		//					value: item.value,
 		//				}
 		//			],
@@ -91,26 +91,28 @@ export default class component_react_items extends p__react__pure_component {
 	}
 	render = () => {
 		return [
-			$('div.paragraph', [
-				$('div', [
+			$('div.container', [
+				$('div.paragraph', [
 					$('div', [
 						$('div', [
-							'create',
+							$('div', [
+								'create',
+							]),
+							$('input', {
+								onChange: this.methods.change,
+								value: this.state['value'],
+							}),
 						]),
-						$('input', {
-							onChange: this.methods.change,
-							value: this.state['value'],
-						}),
-					]),
-					$('div', [
-						$('button.app__submit-btn.btn', {
-							onClick: this.methods.submit,
-						}, [
-							'submit',
+						$('div', [
+							$('button.app__submit-btn.btn', {
+								onClick: this.methods.submit,
+							}, [
+								'submit',
+							]),
 						]),
 					]),
+					this.renders.items(this.state['items']),
 				]),
-				this.renders.items(this.state['items']),
 			]),
 		][0]
 	}

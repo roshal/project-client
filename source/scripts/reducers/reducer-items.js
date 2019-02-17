@@ -1,52 +1,54 @@
 //
-import {
-	List as p__immutable__list,
-	Map as p__immutable__map,
-} from 'immutable'
-//
+
+import p__immutable from 'immutable'
+
+import m__action_types_items from '~/action-types/action-types-items'
+
 const actions = {
-	'items--create': (state, action) => {
-		return state.update(
+	[m__action_types_items.create]: (state, action) => {
+		state = state.update(
 			'items',
 			(items) => {
-				items.insert(
-					action.item,
+				return items.insert(
+					0,
+					p__immutable.Map(action.payload.item),
 				)
 			},
 		)
+		return state
 	},
-	'items--remove': (state, action) => {
+	[m__action_types_items.remove]: (state, action) => {
 		return state.remove(
 			action.payload,
 		)
 	},
-	'items--update': (state, action) => {
+	[m__action_types_items.update]: (state, action) => {
 		return state.updateIn(
 			[
 				'items',
 				action.payload,
 			],
 			(items) => {
-				items.set(
+				return items.set(
 					action.payload,
 				)
 			},
 		)
 	},
 }
-//
+
 export default (
-	state = p__immutable__map({
-		'items': p__immutable__list([
-			p__immutable__map({
+	state = p__immutable.Map({
+		'items': p__immutable.List([
+			p__immutable.Map({
 				key: Math.random(),
 				value: 'a',
 			}),
-			p__immutable__map({
+			p__immutable.Map({
 				key: Math.random(),
 				value: 'b',
 			}),
-			p__immutable__map({
+			p__immutable.Map({
 				key: Math.random(),
 				value: 'c',
 			}),

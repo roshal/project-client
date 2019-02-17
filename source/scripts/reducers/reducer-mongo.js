@@ -1,33 +1,36 @@
 //
+
 import p__axios from 'axios'
-//
+
+import m__action_types_mongo from '~/action-types/action-types-mongo'
+
 const actions = {
-	'mongo--create': (state, action) => {
+	[m__action_types_mongo.create]: (state, action) => {
 		return {
 			...state,
 			'items': [
 				...state['items'],
-				action.item,
+				action.payload.item,
 			],
 		}
 	},
-	'mongo--remove': (state, action) => {
+	[m__action_types_mongo.remove]: (state, action) => {
 		return {
 			...state,
 			'items': state['items'].filter((item) => {
-				return item.key !== action.item.key
+				return item.key !== action.payload.item.key
 			}),
 		}
 	},
-	'mongo--update': (state, action) => {
+	[m__action_types_mongo.update]: (state, action) => {
 		return {
 			...state,
 			'items': state['items'].filter((item) => {
-				return item.key !== action.item.key
+				return item.key !== action.payload.item.key
 			}),
 		}
 	},
-	'mongo--derive': async (state, action) => {
+	[m__action_types_mongo.derive]: async (state, action) => {
 		try {
 			const response = await p__axios({
 				method: 'post',
@@ -36,7 +39,6 @@ const actions = {
 					method: 'get',
 				},
 			})
-			console.log(response)
 		}
 		catch (error) {
 			console.log(error)
@@ -46,7 +48,7 @@ const actions = {
 		}
 	},
 }
-//
+
 export default (
 	state = {
 		'items': [],

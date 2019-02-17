@@ -7,11 +7,8 @@ module.exports = () => {
 			rules: [
 				{
 					resource: {
-						exclude: [
-							$['path'].join(__dirname, '..', 'node_modules'),
-						],
 						include: [
-							$['path'].join(__dirname, '..', 'source', 'scripts'),
+							$['path'].resolve('source', 'scripts'),
 						],
 						test: [
 							/\.js$/,
@@ -22,13 +19,16 @@ module.exports = () => {
 							loader: 'babel-loader',
 							options: {
 								babelrc: false,
+								cacheDirectory: true,
+								presets: [
+									'@babel/preset-env',
+								],
 								plugins: [
+									'@babel/plugin-proposal-class-properties',
 									'@babel/plugin-syntax-dynamic-import',
 									'@babel/plugin-transform-runtime',
 									'babel-plugin-lodash',
-								],
-								presets: [
-									'@babel/preset-env',
+									'react-hot-loader/babel',
 								],
 							},
 						},

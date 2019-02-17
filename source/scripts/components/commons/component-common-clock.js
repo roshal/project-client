@@ -1,14 +1,13 @@
 //
+
 import p__moment__moment from 'moment/moment'
+import p__react from 'react'
 import p__react_hyperscript from 'react-hyperscript'
-//
-import {
-	PureComponent as p__react__pure_component,
-} from 'react'
-//
+
 const $ = p__react_hyperscript
-//
-export default class component_clock extends p__react__pure_component {
+
+export default class extends p__react.PureComponent {
+	static displayName = 'component-common-clock'
 	state = {
 		time: new p__moment__moment(),
 	}
@@ -30,8 +29,10 @@ export default class component_clock extends p__react__pure_component {
 	}
 	render = () => {
 		return [
-			$('div.paragraph', [
-				this.state.time.format('HH:mm:ss'),
+			$('div.container', [
+				$('div.paragraph', [
+					this.state.time.format('HH:mm:ss'),
+				]),
 			]),
 		][0]
 	}

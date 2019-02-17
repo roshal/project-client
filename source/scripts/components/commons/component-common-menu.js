@@ -1,17 +1,15 @@
 //
+
 import p__lodash__fp from 'lodash/fp'
+import p__react from 'react'
 import p__react_hyperscript from 'react-hyperscript'
-//
-import {
-	PureComponent as p__react__pure_component,
-} from 'react'
-import {
-	Link as p__react_router_dom__link,
-} from 'react-router-dom'
-//
+
+import * as ps__react_router_dom from 'react-router-dom'
+
 const $ = p__react_hyperscript
-//
-export default class component_menu extends p__react__pure_component {
+
+export default class extends p__react.PureComponent {
+	static displayName = 'component-common-menu'
 	render = () => {
 		return [
 			$('div.navigation', [
@@ -20,7 +18,7 @@ export default class component_menu extends p__react__pure_component {
 						(item) => {
 							return [
 								$('li.list-item', [
-									$(p__react_router_dom__link, {
+									$(ps__react_router_dom.Link, {
 										className: 'list-link',
 										to: item.link,
 									}, [

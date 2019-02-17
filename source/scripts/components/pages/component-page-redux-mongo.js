@@ -1,15 +1,14 @@
 //
+
+import p__react from 'react'
 import p__react_hyperscript from 'react-hyperscript'
-//
-import {
-	PureComponent as p__react__pure_component,
-} from 'react'
-//
-import m__component_redux_mongo from '../redux/component-redux-mongo'
-//
+
+import m__component_redux_mongo from '~/components/redux/component-redux-mongo'
+
 const $ = p__react_hyperscript
-//
-export default class page_mongo extends p__react__pure_component {
+
+export default class extends p__react.PureComponent {
+	static displayName = 'component-page-redux-mongo'
 	render = () => {
 		return [
 			$(m__component_redux_mongo),

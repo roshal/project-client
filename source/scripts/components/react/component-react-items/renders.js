@@ -1,13 +1,12 @@
 //
+
+import p__react from 'react'
 import p__react_hyperscript from 'react-hyperscript'
-//
-import {
-	PureComponent as p__react__pure_component,
-} from 'react'
-//
+
 const $ = p__react_hyperscript
-//
-export default class component_list extends p__react__pure_component {
+
+export default class extends p__react.PureComponent {
+	static displayName = 'component-list'
 	items = (items) => {
 		return [
 			$('ul.list', items.map(

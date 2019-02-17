@@ -1,20 +1,17 @@
 //
+
+import p__react from 'react'
 import p__react_hyperscript from 'react-hyperscript'
-//
-import {
-	PureComponent as p__react__pure_component,
-} from 'react'
-import {
-	connect as p__react_redux__connect,
-} from 'react-redux'
-import {
-	bindActionCreators as p__redux__bind_action_creators,
-} from 'redux'
-//
-import m__action_table from '../../actions/action-table'
-//
+
+import * as ps__react_redux from 'react-redux'
+import * as ps__redux from 'redux'
+
+import m__actions_table from '~/actions/actions-table'
+
 const $ = p__react_hyperscript
-const source = class component_redux_table extends p__react__pure_component {
+
+const component = class extends p__react.PureComponent {
+	static displayName = 'component-redux-table'
 	state = {
 		'value': '',
 	}
@@ -99,26 +96,28 @@ const source = class component_redux_table extends p__react__pure_component {
 	}
 	render = () => {
 		return [
-			$('div.paragraph', [
-				$('div', [
+			$('div.container', [
+				$('div.paragraph', [
 					$('div', [
-						$('label.app__value-label', [
-							'value',
-							$('input.app__value-input', {
-								onChange: this.methods.change,
-								value: this.state.value,
-							}),
+						$('div', [
+							$('label.app__value-label', [
+								'value',
+								$('input.app__value-input', {
+									onChange: this.methods.change,
+									value: this.state.value,
+								}),
+							]),
+						]),
+						$('div', [
+							$('button.app__submit-btn.btn', {
+								onClick: this.methods.submit,
+							}, [
+								'submit',
+							]),
 						]),
 					]),
-					$('div', [
-						$('button.app__submit-btn.btn', {
-							onClick: this.methods.submit,
-						}, [
-							'submit',
-						]),
-					]),
+					this.renders.table(this.props.state['table']),
 				]),
-				this.renders.table(this.props.state['table']),
 			]),
 		][0]
 	}
@@ -130,14 +129,12 @@ const map_to_props__state = (state) => {
 }
 const map_to_props__actions__dispatch = (dispatch) => {
 	return {
-		actions: p__redux__bind_action_creators(
-			m__action_table, dispatch,
-		),
+		actions: ps__redux.bindActionCreators(m__actions_table, dispatch),
 	}
 }
-const connection = p__react_redux__connect(
+const connection = ps__react_redux.connect(
 	map_to_props__state,
 	map_to_props__actions__dispatch,
 )
-//
-export default connection(source)
+
+export default connection(component)

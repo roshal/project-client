@@ -1,6 +1,5 @@
 const $ = require('../node/packages')(
 	'path',
-	'webpack',
 )
 module.exports = () => {
 	return {
@@ -9,7 +8,7 @@ module.exports = () => {
 				{
 					resource: {
 						include: [
-							$['path'].resolve('source', 'assets'),
+							$['path'].resolve('source', 'images'),
 						],
 					},
 					use: [
@@ -17,15 +16,11 @@ module.exports = () => {
 							loader: 'file-loader',
 							options: {
 								name: '[path][name].[ext]',
-								context: $['path'].resolve('source', 'assets'),
 							},
 						},
 					],
 				},
 			],
 		},
-		plugins: [
-			new $['webpack'].PrefetchPlugin('./assets/favicon.png'),
-		],
 	}
 }

@@ -4,15 +4,12 @@ const $ = require('../node/packages')(
 )
 module.exports = (env = {}, argv) => {
 	return {
-		plugins: [
-			new $['webpack'].PrefetchPlugin('./templates/sources/source.pug'),
-		],
 		module: {
 			rules: [
 				{
 					resource: {
 						include: [
-							$['path'].join(__dirname, '..', 'source', 'templates'),
+							$['path'].resolve('source', 'templates'),
 						],
 						test: [
 							/\.pug$/,
@@ -22,17 +19,11 @@ module.exports = (env = {}, argv) => {
 						{
 							loader: 'file-loader',
 							options: {
-								name: 'source.html',
-								//	name: (file) => {
-								//		return 'source.html'
-								//	},
+								name: 'index.html',
 							},
 						},
 						{
 							loader: 'extract-loader',
-							//	options: {
-							//		publicPath: '/',
-							//	},
 						},
 						{
 							loader: 'html-loader',
@@ -41,7 +32,6 @@ module.exports = (env = {}, argv) => {
 									'link:href',
 									//	'script:src',
 								],
-								//	interpolate: true,
 								removeComments: true,
 							},
 						},
@@ -59,5 +49,8 @@ module.exports = (env = {}, argv) => {
 				},
 			],
 		},
+		plugins: [
+			new $['webpack'].PrefetchPlugin('./templates/sources/index.pug'),
+		],
 	}
 }

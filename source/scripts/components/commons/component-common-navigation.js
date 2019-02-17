@@ -1,17 +1,15 @@
 //
+
 import p__lodash__fp from 'lodash/fp'
+import p__react from 'react'
 import p__react_hyperscript from 'react-hyperscript'
-//
-import {
-	PureComponent as p__react__pure_component,
-} from 'react'
-import {
-	Link as p__react_router_dom__link,
-} from 'react-router-dom'
-//
+
+import * as ps__react_router_dom from 'react-router-dom'
+
 const $ = p__react_hyperscript
-//
-export default class component_navigation extends p__react__pure_component {
+
+export default class extends p__react.PureComponent {
+	static displayName = 'component-common-navigation'
 	state = {
 		list: [],
 	}
@@ -25,7 +23,7 @@ export default class component_navigation extends p__react__pure_component {
 								$('li.list-item', {
 									key: item,
 								}, [
-									$(p__react_router_dom__link, {
+									$(ps__react_router_dom.Link, {
 										to: item,
 									}, [
 										item,

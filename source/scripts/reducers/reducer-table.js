@@ -1,29 +1,32 @@
 //
+
+import m__action_types_table from '~/action-types/action-types-table'
+
 const actions = {
-	'table--create': (state, action) => {
+	[m__action_types_table.create]: (state, action) => {
 		return {
 			...state,
 			items: [
 				...state.items,
-				action.item,
+				action.payload.item,
 			],
 		}
 	},
-	'table--remove': (state, action) => {
+	[m__action_types_table.remove]: (state, action) => {
 		return {
 			...state,
 			items: state.items.filter((item) => {
-				return item.id !== action.item.id
+				return item.id !== action.payload.item.id
 			}),
 		}
 	},
-	'table--update': (state, action) => {
+	[m__action_types_table.update]: (state, action) => {
 		return {
 			...state,
 		}
 	},
 }
-//
+
 export default (
 	state = {
 		'table': [

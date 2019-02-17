@@ -5,7 +5,8 @@ module.exports = () => {
 	return {
 		plugins: [
 			new $['webpack-bundle-analyzer'].BundleAnalyzerPlugin({
-				//	openAnalyzer: false,
+				analyzerPort: 8888,
+				openAnalyzer: false,
 			}),
 		],
 	}

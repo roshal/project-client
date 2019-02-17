@@ -1,39 +1,40 @@
 //
+
+import p__react from 'react'
 import p__react_hyperscript from 'react-hyperscript'
-//
-import {
-	PureComponent as p__react__pure_component,
-} from 'react'
-//
+
 const $ = p__react_hyperscript
-//
-export default class page_authorization extends p__react__pure_component {
+
+export default class extends p__react.PureComponent {
+	static displayName = 'component-page-authorization'
 	render = () => {
 		return [
-			$('div.paragraph', [
-				$('div', [
+			$('div.container', [
+				$('div.paragraph', [
 					$('div', [
-						'username',
+						$('div', [
+							'username',
+						]),
+						$('input', {
+							id: 'username',
+							name: 'username',
+						}),
 					]),
-					$('input', {
-						id: 'username',
-						name: 'username',
-					}),
-				]),
-				$('div', [
 					$('div', [
-						'password',
+						$('div', [
+							'password',
+						]),
+						$('input', {
+							id: 'password',
+							name: 'password',
+						}),
 					]),
-					$('input', {
-						id: 'password',
-						name: 'password',
-					}),
-				]),
-				$('div', [
-					$('button', {
-						onClick: this.method,
-					}, [
-						'submit',
+					$('div', [
+						$('button', {
+							onClick: this.method,
+						}, [
+							'submit',
+						]),
 					]),
 				]),
 			]),
@@ -41,6 +42,5 @@ export default class page_authorization extends p__react__pure_component {
 	}
 	method = (event) => {
 		event.preventDefault()
-		console.log(event)
 	}
 }
