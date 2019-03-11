@@ -1,4 +1,4 @@
-const $ = require('../node/packages')(
+const $ = require('../node/require')(
 	'moment-locales-webpack-plugin',
 	'path',
 	'webpack-stylish',

@@ -1,4 +1,4 @@
-const $ = require('../node/packages')(
+const $ = require('../node/require')(
 	'lodash-webpack-plugin',
 	'path',
 	'terser-webpack-plugin',

@@ -1,5 +1,6 @@
 /*
 
+!/node/
 !/source/
 !/webpack/
 
@@ -15,4 +16,4 @@
 !/firebase.json
 !/package-scripts.yml
 !/package.json
-!/webpack.config.babel.js
+!/webpack.config.js

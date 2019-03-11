@@ -1,4 +1,4 @@
-const $ = require('../node/packages')(
+const $ = require('../node/require')(
 	'path',
 )
 module.exports = (env = {}, argv = {}) => {

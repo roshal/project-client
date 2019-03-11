@@ -1,4 +1,4 @@
-const $ = require('../node/packages')(
+const $ = require('../node/require')(
 	'webpack-bundle-analyzer',
 )
 module.exports = () => {
